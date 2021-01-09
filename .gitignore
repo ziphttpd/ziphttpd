@@ -1,0 +1,6 @@
+*.exe
+*.now
+cmd/__debug_bin
+.vs*
+*.json
+*.log
