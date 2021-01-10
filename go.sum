@@ -1,9 +1,11 @@
-github.com/xorvercom/util v0.0.0-20200516133700-9dccf12257b9 h1:WO+8ansxjZUNMNCRKf3fOXZ8tOtZ0DTUs9XW9zT1Mn4=
-github.com/xorvercom/util v0.0.0-20200516133700-9dccf12257b9/go.mod h1:6M76XgT6CWAZ7ulBJziWvaWC8ICrc7kctm6UVEhEFM8=
 github.com/xorvercom/util v0.0.0-20200708133029-6df8aabe3148 h1:GeeDX+GgWziZHoEObXVT0TLgQ4xS3615sVRkhuiwLQw=
 github.com/xorvercom/util v0.0.0-20200708133029-6df8aabe3148/go.mod h1:6M76XgT6CWAZ7ulBJziWvaWC8ICrc7kctm6UVEhEFM8=
-github.com/ziphttpd/zhsig v0.0.0-20200719053511-1da4aea9d34c h1:aELQK6xZ1V03fP2ieUfLhvI2p94XQVKTTm/AZABebZ0=
-github.com/ziphttpd/zhsig v0.0.0-20200719053511-1da4aea9d34c/go.mod h1:4vxA2giasI0kpJa1Vt6L/yYrD52m28okOpAj2l7dXBk=
+github.com/xorvercom/util v0.0.0-20210108010905-60ced194d72b h1:UV5FH2u1BcvzySdIIQA4xXcfvxJL0nzb55bKPnt4udo=
+github.com/xorvercom/util v0.0.0-20210108010905-60ced194d72b/go.mod h1:6M76XgT6CWAZ7ulBJziWvaWC8ICrc7kctm6UVEhEFM8=
+github.com/ziphttpd/zhsig v0.0.0-20210105075119-3ad3164034a5 h1:GV5qwpeuKwuU2kUlgUSiEE1aEKOsFr1A/FOCIdFp6a8=
+github.com/ziphttpd/zhsig v0.0.0-20210105075119-3ad3164034a5/go.mod h1:4vxA2giasI0kpJa1Vt6L/yYrD52m28okOpAj2l7dXBk=
 golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
 golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
+golang.org/x/text v0.3.5 h1:i6eZZ+zk0SOf0xgBpEpPD18qWcJda6q1sxt3S0kzyUQ=
+golang.org/x/text v0.3.5/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
