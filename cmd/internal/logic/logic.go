@@ -90,7 +90,7 @@ func execLogic(a *api, param *apiParam) bool {
 		storagePath = filepath.Join(storagePath, key2filename(nameElem.Text()))
 	}
 	// フォルダがない場合には作る
-	os.MkdirAll(storagePath, os.ModeDir)
+	os.MkdirAll(storagePath, 0755)
 
 	// API 別の処理
 	apiMethod := strings.ToLower(apiStr.Text())

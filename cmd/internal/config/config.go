@@ -93,14 +93,14 @@ func OpenConfig(u common.ZipHttpdUtil) (common.Config, error) {
 	// 設定ファイルの置き場
 	c.configPath = u.ConfigDir()
 	// 無ければ作っておく
-	err = os.MkdirAll(c.configPath, os.ModeDir)
+	err = os.MkdirAll(c.configPath, 0755)
 	if err != nil {
 		return nil, fmt.Errorf("error os.MkdirAll(%s) : %v", c.configPath, err)
 	}
 
 	logDir := u.LogDir()
 	// 無ければ作っておく
-	err = os.MkdirAll(logDir, os.ModeDir)
+	err = os.MkdirAll(logDir, 0755)
 	if err != nil {
 		return nil, fmt.Errorf("error os.MkdirAll(%s) : %v", logDir, err)
 	}
@@ -138,7 +138,7 @@ func OpenConfig(u common.ZipHttpdUtil) (common.Config, error) {
 	//c.groupsDic[systemHost] = model.NewDocGroup(c.PortMan(), systemHost, c.securityMan, apiPath)
 
 	// ドキュメント設定ディレクトリが無ければ作っておく
-	err = os.MkdirAll(c.docPath, os.ModeDir)
+	err = os.MkdirAll(c.docPath, 0755)
 	if err != nil {
 		return nil, fmt.Errorf("error os.MkdirAll(%s) : %v", c.docPath, err)
 	}
@@ -316,7 +316,7 @@ func (c *conf) readConf(confFileName, hostname, groupname, docname string) {
 	// 静的ファイル
 	if docdata.UseStaticFiles() {
 		folder := fpath.Join(c.configPath, "static", hostname, docGroupName, docid)
-		os.MkdirAll(folder, os.ModeDir)
+		os.MkdirAll(folder, 0755)
 	}
 }
 
