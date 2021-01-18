@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	fpath "path/filepath"
 	"strings"
 
 	"github.com/xorvercom/util/pkg/easywork"
@@ -37,6 +38,15 @@ func main() {
 	util.SetLogDir(*logPath)
 	util.SetListenPort(*listenPort)
 	util.SetFirstDocPort(*firstDocPort)
+
+	// pidファイル作成
+	pidfile := fpath.Join(*confPath, "ziphttpd.pid")
+	os.Remove(pidfile)
+	if pidf, err := os.Create(pidfile); err == nil {
+		fmt.Fprintf(pidf, "%d\n", os.Getpid())
+		pidf.Close()
+		defer os.Remove(pidfile)
+	}
 
 	// 設定読み込み
 	conf, err := iconfig.OpenConfig(util)
