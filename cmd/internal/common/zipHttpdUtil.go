@@ -102,7 +102,7 @@ func (u *util) FirstDocPort() int {
 func (u *util) DefaultConfig() string {
 	// TODO: 標準の設定ファイルは Config から生成するように検討する。
 	return `{
-	"contentType": {
+	"contenttype": {
 		"html,htm": "text/html",
 		"js": "text/javascript",
 		"json": "text/json",
