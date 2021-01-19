@@ -9,6 +9,8 @@ fi
 
 SCRIPT_DIR=$(cd $(dirname ${SCRIPT}); pwd)
 cd ${SCRIPT_DIR}
+
+git pull
 go build -o ${TARGET_DIR}/ziphttpd cmd/main.go
 
 exit 0
