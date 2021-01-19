@@ -2,7 +2,7 @@
 SCRIPT=$0
 TARGET_DIR=$1
 
-if [ -d "${TARGET_DIR}" ]; then
+if [ ! -d "${TARGET_DIR}" ]; then
 	echo "Usage: ${SCRIPT} {install-directory}"
 	exit 1
 fi
