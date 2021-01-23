@@ -11,14 +11,14 @@ if "%TARGET%" == "" (
 cd %SCRIPTDIR%
 git pull
 
-set EXEID=ziphttpd
-set SOURCE=%SCRIPTDIR%%EXEID%.exe
-set TARGET=%ZH_HOME%%EXEID%.exe
+set FILE=ziphttpd.exe
+set SOURCE=%SCRIPTDIR%%FILE%
+set TARGET=%ZH_HOME%%FILE%
 
 go build -o %SOURCE% cmd/main.go
 
 if exist %TARGET%.old del /Y %TARGET%.old
-if exist %TARGET% ren %TARGET% %TARGET%.old
+if exist %TARGET% ren %TARGET% %FILE%.old
 copy %SOURCE% %TARGET%
 
 exit /B 0
