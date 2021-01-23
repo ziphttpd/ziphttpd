@@ -1,4 +1,4 @@
-@echo off
+rem @echo off
 
 set TARGET=%1
 set BASE=%~dp0
