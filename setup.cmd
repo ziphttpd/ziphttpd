@@ -3,7 +3,7 @@ rem @echo off
 set ZH_HOME=%1
 set SCRIPTDIR=%~dp0
 
-if "%TARGET%" == "" (
+if "%ZH_HOME%" == "" (
 	echo setup.cmd targetfolder\
 	exit /B 1
 )
