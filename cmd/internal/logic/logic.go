@@ -125,6 +125,24 @@ func execLogic(a *api, param *apiParam) bool {
 		param.done <- 0
 		return false
 
+	case "dirs":
+		res := listHolders(a.storagePath)
+		keys := make([]interface{}, 0)
+		for i := 0; i < res.Size(); i++ {
+			if key, ok := res.Child(i).AsString(); ok {
+				keys = append(keys, key.String())
+			}
+		}
+		// イベント通知
+		a.sendArray(apiMethod, param, keys)
+		// ログ
+		log.Infof("%s: done %+v", apiMethod, keys)
+
+		// 要求終了を通知
+		param.result = res
+		param.done <- 0
+		return false
+
 	case "write":
 		var items json.ElemObject
 		if items, ok = jsonObj.Child("items").AsObject(); false == ok {

@@ -77,6 +77,16 @@ func listKeys(folder string) json.ElemArray {
 	return arr
 }
 
+// listHolders はサブホルダの一覧を返します。
+func listHolders(folder string) json.ElemArray {
+	arr := json.NewElemArray()
+	for _, dirname := range listDirs(folder) {
+		holdername := filename2key(dirname)
+		arr.Append(json.NewElemString(holdername))
+	}
+	return arr
+}
+
 // backupData は全データファイルをzip化したリーダーを返します。
 // 実ファイル構成を意識しないでバックアップできるようにするための試験実装。
 // TODO: 未使用

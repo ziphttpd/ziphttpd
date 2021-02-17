@@ -23,6 +23,20 @@ func listFiles(folder string) []string {
 	return res
 }
 
+// listDirs は全サブディレクトリの一覧を返します
+func listDirs(folder string) []string {
+	res := []string{}
+	if files, err := ioutil.ReadDir(folder); err == nil {
+		for _, file := range files {
+			if file.IsDir() {
+				res = append(res, file.Name())
+			}
+		}
+	}
+	sort.Sort(sort.StringSlice(res))
+	return res
+}
+
 // listFilesByExt は特定の拡張子を持つファイルの一覧を返します
 func listFilesByExt(folder, ext string) []string {
 	res := []string{}
