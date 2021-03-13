@@ -135,6 +135,10 @@ func (s *serv) ServeHTTPinner(writer common.ResponseProxy, request common.Reques
 		// リクエストされたのはwebapiだった
 		handler.APIHandler(writer, request, p)
 		return
+	case "files":
+		// リクエストされたのはファイル一覧
+		handler.FilesHandler(writer, request, p)
+		return
 	case "login":
 		// LoginHandler は、パスワード検査の関係上、同時には一個しか処理しない
 		s.mu.Lock()
