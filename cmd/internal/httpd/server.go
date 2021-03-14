@@ -89,6 +89,10 @@ func (s *serv) Port() int {
 
 // ServeHTTP は http.Handler の実装メソッド。
 func (s *serv) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+	// TODO: GET にだけクロスオリジンを許可したいが、正しいのか未確認
+	writer.Header().Set("Access-Control-Allow-Headers", "*")
+	writer.Header().Set("Access-Control-Allow-Origin", "*")
+	writer.Header().Set("Access-Control-Allow-Methods", "GET")
 	s.ServeHTTPinner(NewResponseProxy(writer), NewRequestProxy(request))
 }
 
