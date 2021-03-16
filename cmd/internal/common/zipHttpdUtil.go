@@ -104,7 +104,7 @@ func (u *util) DefaultConfig() string {
 	return `{
 	"contenttype": {
 		"html,htm": "text/html",
-		"js": "text/javascript",
+		"js,mjs": "text/javascript",
 		"json": "text/json",
 		"css": "text/css",
 		"txt": "text/plain",
