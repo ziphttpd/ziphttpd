@@ -88,8 +88,8 @@ func init() {
 			<tr><td>
 				<p class="attention">
 				表示中のドキュメントで ZipHttpd の WebAPI が実行されました。<br/>
-				パスワードによる確認を行います。<br/>
-				これは、第三者のスクリプトによる記録されたデータへの予期しないアクセスを防ぎます。<br/>
+				ローカルテキストファイルに記録されているパスワードでの認証を行います。<br/>
+				これは記録されたデータへの、第三者のスクリプトによるアクセスを防ぎます。<br/>
 				</p>
 				<form method="POST" action="">
 				host: <span class="hostname">{{.HostName}}</span><br/>

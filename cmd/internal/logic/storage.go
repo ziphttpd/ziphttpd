@@ -8,6 +8,7 @@ import (
 	"os"
 	fpath "path/filepath"
 
+	"github.com/xorvercom/util/pkg/fileutil"
 	"github.com/xorvercom/util/pkg/json"
 )
 
@@ -48,6 +49,7 @@ func addData(folder string, items json.ElemObject) ([]interface{}, error) {
 }
 
 // commitData は一時ファイルをデータファイルとしてコミットします
+// TODO: データファイルを削除extに変換しておいて、失敗事にはロールバックするようにする（大体は問題はないので保留
 func commitData(folder string) error {
 	return changeExt(folder, extTemp, extData)
 }
@@ -64,7 +66,7 @@ func loadItemValue(folder, key string) json.ElemString {
 
 func deleteItem(folder, key string) error {
 	filename := key2filename(key) + extData
-	return deleteFile(fpath.Join(folder, filename))
+	return fileutil.FileIfDelete(fpath.Join(folder, filename))
 }
 
 // listKeys はキーの一覧を返します。
@@ -80,7 +82,7 @@ func listKeys(folder string) json.ElemArray {
 // listHolders はサブホルダの一覧を返します。
 func listHolders(folder string) json.ElemArray {
 	arr := json.NewElemArray()
-	for _, dirname := range listDirs(folder) {
+	for _, dirname := range fileutil.DirsList(folder) {
 		holdername := filename2key(dirname)
 		arr.Append(json.NewElemString(holdername))
 	}

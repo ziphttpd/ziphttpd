@@ -1,46 +1,19 @@
 package logic
 
 import (
-	"crypto/rand"
-	"encoding/hex"
 	"fmt"
 	"io/ioutil"
 	"os"
 	fpath "path/filepath"
-	"sort"
 	"strings"
+
+	"github.com/xorvercom/util/pkg/fileutil"
 )
-
-// listFiles は全ファイルの一覧を返します
-func listFiles(folder string) []string {
-	res := []string{}
-	if files, err := ioutil.ReadDir(folder); err == nil {
-		for _, file := range files {
-			res = append(res, file.Name())
-		}
-	}
-	sort.Sort(sort.StringSlice(res))
-	return res
-}
-
-// listDirs は全サブディレクトリの一覧を返します
-func listDirs(folder string) []string {
-	res := []string{}
-	if files, err := ioutil.ReadDir(folder); err == nil {
-		for _, file := range files {
-			if file.IsDir() {
-				res = append(res, file.Name())
-			}
-		}
-	}
-	sort.Sort(sort.StringSlice(res))
-	return res
-}
 
 // listFilesByExt は特定の拡張子を持つファイルの一覧を返します
 func listFilesByExt(folder, ext string) []string {
 	res := []string{}
-	for _, filename := range listFiles(folder) {
+	for _, filename := range fileutil.FilesList(folder) {
 		if strings.HasSuffix(filename, ext) {
 			res = append(res, filename)
 		}
@@ -115,36 +88,4 @@ func loadString(filename string) (string, error) {
 		return "", err
 	}
 	return string(bytes), nil
-}
-
-func deleteFile(filename string) error {
-	return os.Remove(filename)
-}
-
-// tempSpace は一時領域を作成し、runner を実行した後に一時領域を削除します。
-func tempSpace(runner func(tempdir string) error) (err error) {
-	// 一時領域名を乱数で生成
-	randBtres := make([]byte, 8)
-	rand.Read(randBtres)
-	tempdir := fpath.Join(os.TempDir(), "tempspace_"+hex.EncodeToString(randBtres))
-
-	// 一時領域を作成
-	err = os.MkdirAll(tempdir, 0600)
-	if err != nil {
-		return err
-	}
-	// 一時領域を削除
-	defer os.RemoveAll(tempdir)
-	// パニックをキャッチ
-	defer func() {
-		r := recover()
-		if r != nil {
-			err = fmt.Errorf("Run() return %+v", r)
-		}
-	}()
-
-	// runner を実行
-	err = runner(tempdir)
-
-	return err
 }
