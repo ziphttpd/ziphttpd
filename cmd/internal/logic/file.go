@@ -2,7 +2,6 @@ package logic
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	fpath "path/filepath"
 	"strings"
@@ -64,28 +63,14 @@ func changeExt(folder, srcExt, dstExt string) error {
 
 // saveString は文字列を保存します。
 func saveString(filename, savedata string) error {
-	f, err := os.Create(filename)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	_, err = f.WriteString(savedata)
-	if err != nil {
-		return err
-	}
-	return nil
+	return os.WriteFile(filename, []byte(savedata), 0655)
 }
 
 // loadString は文字列を読み込みます。
-func loadString(filename string) (string, error) {
-	f, err := os.Open(filename)
-	if err != nil {
-		return "", err
+func loadString(filename string) (str string, err error) {
+	bytes, err := os.ReadFile(filename)
+	if err == nil {
+		str = string(bytes)
 	}
-	defer f.Close()
-	bytes, err := ioutil.ReadAll(f)
-	if err != nil {
-		return "", err
-	}
-	return string(bytes), nil
+	return
 }

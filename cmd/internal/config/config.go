@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	fpath "path/filepath"
 	"sort"
@@ -113,7 +112,7 @@ func OpenConfig(u common.ZipHttpdUtil) (common.Config, error) {
 	if os.IsNotExist(err) {
 		// 標準の設定ファイルを配置
 		defaultZiphttpdconf := u.DefaultConfig()
-		err := ioutil.WriteFile(configfile, []byte(defaultZiphttpdconf), os.ModePerm)
+		err := os.WriteFile(configfile, []byte(defaultZiphttpdconf), os.ModePerm)
 		if err != nil {
 			return nil, fmt.Errorf("error write %s : %v", configfile, err)
 		}
@@ -166,7 +165,7 @@ func OpenConfig(u common.ZipHttpdUtil) (common.Config, error) {
 func (c *conf) readStore() {
 	store := fpath.Join(c.ConfigPath(), "store")
 	// ホスト別ディレクトリ ./store/{ホスト}/ の検索
-	hostdirs, err := ioutil.ReadDir(store)
+	hostdirs, err := os.ReadDir(store)
 	if err != nil {
 		return
 	}
@@ -245,7 +244,7 @@ func (c *conf) readDocs() {
 	hostTitle := c.titleMan.AddHost(localHost, nil)
 	groupTitle := hostTitle.AddGroup(localHost, "COMMON", "localhost document")
 	// ./docs のファイルを検索
-	files, _ := ioutil.ReadDir(c.docPath)
+	files, _ := os.ReadDir(c.docPath)
 	for _, f := range files {
 		// ディレクトリは除く
 		if f.IsDir() {
@@ -373,12 +372,8 @@ func (c *conf) setup() {
 		if false == fpath.IsAbs(fav) { // nolint:gosimple
 			fav = fpath.Join(c.configPath, fav)
 		}
-		f, e := os.OpenFile(fav, os.O_RDONLY, os.ModePerm)
-		if e == nil {
-			buf, e := ioutil.ReadAll(f)
-			if e == nil {
-				c.favicon = buf
-			}
+		if buf, err := os.ReadFile(fav); err == nil {
+			c.favicon = buf
 		}
 	}
 }

@@ -4,7 +4,7 @@ import (
 	azip "archive/zip"
 	"bytes"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	fpath "path/filepath"
 
@@ -99,7 +99,7 @@ func backupData(folder string) *bytes.Buffer {
 	for _, filename := range listFilesByExt(folder, extData) {
 		if reader, err := os.Open(fpath.Join(folder, filename)); err == nil {
 			if ent, err := zip.Create(filename); err == nil {
-				if bytes, err := ioutil.ReadAll(reader); err == nil {
+				if bytes, err := io.ReadAll(reader); err == nil {
 					ent.Write(bytes)
 					zip.Flush()
 				}
