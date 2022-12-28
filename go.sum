@@ -1,14 +1,7 @@
-github.com/xorvercom/util v0.0.0-20200708133029-6df8aabe3148 h1:GeeDX+GgWziZHoEObXVT0TLgQ4xS3615sVRkhuiwLQw=
-github.com/xorvercom/util v0.0.0-20200708133029-6df8aabe3148/go.mod h1:6M76XgT6CWAZ7ulBJziWvaWC8ICrc7kctm6UVEhEFM8=
-github.com/xorvercom/util v0.0.0-20210108010905-60ced194d72b h1:UV5FH2u1BcvzySdIIQA4xXcfvxJL0nzb55bKPnt4udo=
 github.com/xorvercom/util v0.0.0-20210108010905-60ced194d72b/go.mod h1:6M76XgT6CWAZ7ulBJziWvaWC8ICrc7kctm6UVEhEFM8=
-github.com/xorvercom/util v0.0.0-20220904234103-78c496d3334b h1:/LnGLU2X6lfq+jpX4bMBNvSCqi/lU4AAi3k/n+S2h3c=
-github.com/xorvercom/util v0.0.0-20220904234103-78c496d3334b/go.mod h1:LftcjiIo5zl/wrVEY6/QPV6oRIrl4Vwj1Ae7oJCSJzE=
 github.com/xorvercom/util v0.0.0-20221021224830-18a570af9024 h1:/kl22d/gMbRWmz+3ia1c66R9t0c/sZUWC2M/iX9f6E0=
 github.com/xorvercom/util v0.0.0-20221021224830-18a570af9024/go.mod h1:LftcjiIo5zl/wrVEY6/QPV6oRIrl4Vwj1Ae7oJCSJzE=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
-github.com/ziphttpd/zhsig v0.0.0-20210105075119-3ad3164034a5 h1:GV5qwpeuKwuU2kUlgUSiEE1aEKOsFr1A/FOCIdFp6a8=
-github.com/ziphttpd/zhsig v0.0.0-20210105075119-3ad3164034a5/go.mod h1:4vxA2giasI0kpJa1Vt6L/yYrD52m28okOpAj2l7dXBk=
 github.com/ziphttpd/zhsig v0.0.0-20210125230411-539b704bbfb4 h1:yhx50EeFbL24V2cbZKUTSbv5cdXpbbPvTOeoNgXTPrM=
 github.com/ziphttpd/zhsig v0.0.0-20210125230411-539b704bbfb4/go.mod h1:YTjjpTSGJjK+lSKUIbW7SsCoDuVfxfOUKCZCLtn1wac=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
@@ -27,12 +20,8 @@ golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod h1:jbD1KX2456YbFQfuXm/mYQcufACuNUgVhRMnK/tPxf8=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
-golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
 golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
-golang.org/x/text v0.3.5 h1:i6eZZ+zk0SOf0xgBpEpPD18qWcJda6q1sxt3S0kzyUQ=
-golang.org/x/text v0.3.5/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
-golang.org/x/text v0.3.7 h1:olpwvP2KacW1ZWvsR7uQhoyTYvKAupfQrRGBFM352Gk=
 golang.org/x/text v0.3.7/go.mod h1:u+2+/6zg+i71rQMx5EYifcz6MCKuco9NR6JIITiCfzQ=
 golang.org/x/text v0.4.0 h1:BrVqGRd7+k1DiOgtnFvAkoQEWQvBc25ouMJM6429SFg=
 golang.org/x/text v0.4.0/go.mod h1:mrYo+phRRbMaCq/xk9113O4dZlRixOauAjOtrjsXDZ8=
